@@ -1,0 +1,55 @@
+.hero {
+  background-image: image-set(
+    url("/images/banner@1x.jpg") 1x,
+    url("/images/banner@2x.jpg") 2x
+  );
+  background-size: cover;
+  background-position: center;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  border-radius: 16px;
+  text-align: center;
+  color: #fff;
+  margin: 436px auto 64px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1.2;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.button {
+  background-color: #3b82f6;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 12px;
+  padding: 12px 88px;
+  width: 276px;
+  height: 44px;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #fff;
+}
+
+.button:hover {
+  background-color: #2563eb;
+}
