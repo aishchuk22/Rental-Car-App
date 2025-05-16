@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 120px;
+  background-color: #f2f4f7;
+  border-bottom: 1px solid #f2f4f7;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+}
+
+.link {
+  font-size: 16px;
+  color: #101828;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #3b82f6;
+}
+
+.active {
+  color: #0b44cd;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: center;
+  transition: color 0.3s ease;
+}
