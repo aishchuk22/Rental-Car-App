@@ -8,6 +8,8 @@ const carsSlice = createSlice({
     isLoading: false,
     error: null,
     page: 1,
+    totalPages: 0,
+    totalCars: 0,
   },
   reducers: {
     resetCars(state) {
@@ -15,7 +17,7 @@ const carsSlice = createSlice({
       state.page = 1;
     },
     nextPage(state) {
-      state.page += 1;
+      state.page = Number(state.page) + 1;
     },
   },
   extraReducers: (builder) => {
@@ -27,7 +29,13 @@ const carsSlice = createSlice({
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items = action.payload.items; // Тепер це action.payload.items
+
+        if (action.payload.page === 1) {
+          state.items = [...action.payload.items];
+        } else {
+          state.items = [...state.items, ...action.payload.items];
+        }
+
         state.totalCars = action.payload.totalCars;
         state.page = action.payload.page;
         state.totalPages = action.payload.totalPages;

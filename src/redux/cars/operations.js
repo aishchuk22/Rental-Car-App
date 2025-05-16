@@ -5,13 +5,16 @@ export const fetchCars = createAsyncThunk(
   "cars/fetchAll",
   async ({ page = 1, limit = 12 }, thunkAPI) => {
     try {
+      const pageNum = Number(page);
+
       const { data } = await api.get("/cars", {
-        params: { page, limit },
+        params: { page: pageNum, limit },
       });
+
       return {
         items: data.cars,
         totalCars: data.totalCars,
-        page: data.page,
+        page: pageNum,
         totalPages: data.totalPages,
       };
     } catch (error) {
