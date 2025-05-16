@@ -1,0 +1,14 @@
+.catalog {
+  padding: 40px;
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
