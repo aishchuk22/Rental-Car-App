@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import s from "./CarCard.module.css";
 
 const CarCard = ({ car }) => {
@@ -17,6 +18,12 @@ const CarCard = ({ car }) => {
     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
   };
 
+  const navigate = useNavigate();
+
+  const handleReadMore = () => {
+    navigate(`/catalog/${car.id}`);
+  };
+
   return (
     <li className={s.card}>
       <img src={img} alt={`${brand} ${model}`} className={s.image} />
@@ -34,6 +41,9 @@ const CarCard = ({ car }) => {
           {type} | {formatMileage(mileage)} km
         </p>
       </div>
+      <button type="button" className={s.readMoreBtn} onClick={handleReadMore}>
+        Read more
+      </button>
     </li>
   );
 };
