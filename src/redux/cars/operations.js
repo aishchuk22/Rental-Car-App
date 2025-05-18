@@ -46,8 +46,9 @@ export const fetchFilteredCars = createAsyncThunk(
 
       if (brand) params.brand = brand;
       if (price) params.rentalPrice = price;
-      if (mileageFrom) params.mileageFrom = mileageFrom.replace(/,/g, "");
-      if (mileageTo) params.mileageTo = mileageTo.replace(/,/g, "");
+      if (mileageFrom) params.minMileage = mileageFrom.replace(/,/g, "");
+      if (mileageTo) params.maxMileage = mileageTo.replace(/,/g, "");
+
 
       const { data } = await api.get("/cars", { params });
 

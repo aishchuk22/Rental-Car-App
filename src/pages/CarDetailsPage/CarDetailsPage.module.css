@@ -27,16 +27,15 @@
 .title {
   font-size: 24px;
   font-weight: 600;
-  margin-bottom: 8px;
   line-height: 1.33;
 }
 
 /* fs is smaller so that the id can fit the row */
 .carId {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: #8d929a;
-  margin-left: 16px;
+  margin-bottom: 8px;
 }
 
 .subInfo {

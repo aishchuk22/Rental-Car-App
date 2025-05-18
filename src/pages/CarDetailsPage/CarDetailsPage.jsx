@@ -131,7 +131,8 @@ const CarDetailsPage = () => {
         </div>
         <div className={s.detailsWrap}>
           <h2 className={s.title}>
-            {brand} {model}, {year} <span className={s.carId}>ID: {carId}</span>
+            {brand} {model}, {year}
+          <p className={s.carId}>ID: {carId}</p>
           </h2>
           <div className={s.subInfo}>
             <svg>
