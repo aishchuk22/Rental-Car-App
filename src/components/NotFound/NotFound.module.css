@@ -1,0 +1,12 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  text-align: center;
+}
+
+.text {
+  font-size: 20px;
+  color: #6b7280;
+}

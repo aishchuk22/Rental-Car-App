@@ -9,6 +9,8 @@ import {
   selectPage,
   selectTotalPages,
 } from "../../redux/cars/selectors";
+import FilterPanel from "../../components/FilterPanel/FilterPanel";
+import NotFound from "../../components/NotFound/NotFound";
 import CarCard from "../../components/CarCard/CarCard";
 import { Audio } from "react-loader-spinner";
 import s from "./CatalogPage.module.css";
@@ -43,14 +45,18 @@ const CatalogPage = () => {
     }
   };
 
+  const handleFilter = (filters) => {
+    console.log("Selected filters:", filters);
+  };
+
   const hasCars = cars && cars.length > 0;
 
   const showLoadMoreButton = !isLoading && page < totalPages;
 
   return (
     <section className={s.catalog}>
-      <h1 className={s.title}>Catalog</h1>
-
+      <FilterPanel onFilter={handleFilter} />
+      
       {hasCars && (
         <ul className={s.list}>
           {cars.map((car) => (
@@ -58,6 +64,8 @@ const CatalogPage = () => {
           ))}
         </ul>
       )}
+
+      {!isLoading && !error && !hasCars && <NotFound />}
 
       {isLoading && (
         <div className={s.loaderWrap}>

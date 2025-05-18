@@ -1,83 +1,90 @@
 .detailsSection {
-  padding: 40px 20px;
   background-color: #ffffff;
 }
 
 .container {
   max-width: 1200px;
+  padding-top: 152px;
+  padding-bottom: 104px;
   margin: 0 auto;
   display: flex;
-  gap: 40px;
+  gap: 72px;
   align-items: flex-start;
-  flex-wrap: wrap;
 }
 
 .image {
-  max-width: 500px;
+  max-width: 640px;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 19px;
 }
 
 .detailsWrap {
   flex: 1;
-  min-width: 300px;
+  min-width: 488px;
 }
 
 .title {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 12px;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.33;
 }
 
+/* fs is smaller so that the id can fit the row */
 .carId {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
   color: #8d929a;
-  margin-left: 12px;
+  margin-left: 16px;
 }
 
 .subInfo {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  font-weight: 500;
+  line-height: 1.25;
   font-size: 16px;
-  color: #8d929a;
-  margin-bottom: 12px;
+  color: #101828;
+  margin-bottom: 16px;
   gap: 6px;
+}
+
+.mileage {
+  font-weight: 500;
+  line-height: 1.25;
+  font-size: 16px;
+  color: #101828;
+  margin-left: 16px;
 }
 
 .subInfo svg {
   width: 16px;
   height: 16px;
+  fill: #101828;
   margin-right: 4px;
-  fill: #3b82f6;
-}
-
-.dot {
-  width: 4px;
-  height: 4px;
-  background-color: #8d929a;
-  border-radius: 50%;
-  display: inline-block;
-  margin: 0 6px;
 }
 
 .price {
   font-weight: 600;
-  color: #3b82f6;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: #3470ff;
+  margin-bottom: 32px;
 }
 
 .description {
+  font-weight: 500;
   font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 24px;
+  line-height: 1.25;
+  margin-bottom: 68px;
 }
 
 .blockTitle {
   font-size: 20px;
   font-weight: 600;
-  margin-top: 24px;
-  margin-bottom: 12px;
+  line-height: 1.2;
+  margin-bottom: 20px;
 }
 
 .conditionsList,
@@ -93,8 +100,19 @@
 .featuresList li {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.conditionsList li:last-child,
+.specList li:last-child {
+  margin-bottom: 110px;
+}
+
+.featuresList li:last-child {
+  margin-bottom: 0;
 }
 
 .conditionsList svg,
@@ -110,11 +128,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
-}
-
-.error {
-  color: red;
-  text-align: center;
-  font-weight: bold;
+  height: 360px;
 }

@@ -29,7 +29,7 @@ const CarDetailsPage = () => {
     );
   }
 
-  if (error) return <p className={s.error}>Error: {error}</p>;
+  if (error) return <p>Error: {error}</p>;
   if (!car) return null;
 
   const {
@@ -59,17 +59,15 @@ const CarDetailsPage = () => {
           <h2 className={s.title}>
             {brand} {model}, {year} <span className={s.carId}>ID: {carId}</span>
           </h2>
-          <p className={s.subInfo}>
+          <div className={s.subInfo}>
             <svg>
               <use href="/icons/symbol-definitions.svg#icon-location-mark" />
             </svg>
             {address.split(",")[1]}, {address.split(",")[2]}
-            <span className={s.dot}></span>
-            Mileage: {formatMileage(mileage)} km
-            <span className={s.dot}></span>
-            <span className={s.price}>${rentalPrice}</span>
-          </p>
+            <p className={s.mileage}>Mileage: {formatMileage(mileage)} km</p>
+          </div>
 
+          <p className={s.price}>${rentalPrice}</p>
           <p className={s.description}>{description}</p>
 
           <h3 className={s.blockTitle}>Rental Conditions:</h3>
