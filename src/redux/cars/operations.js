@@ -34,3 +34,28 @@ export const fetchCarById = createAsyncThunk(
     }
   }
 );
+
+export const fetchFilteredCars = createAsyncThunk(
+  "cars/fetchFiltered",
+  async ({ brand, price, mileageFrom, mileageTo }, thunkAPI) => {
+    try {
+      const params = {};
+
+      if (brand) params.brand = brand;
+      if (price) params.rentalPrice = price;
+      if (mileageFrom) params.mileageFrom = mileageFrom.replace(/,/g, "");
+      if (mileageTo) params.mileageTo = mileageTo.replace(/,/g, "");
+
+      const { data } = await api.get("/cars", { params });
+
+      return {
+        items: data.cars,
+        totalCars: data.totalCars || data.cars.length,
+        page: 1,
+        totalPages: 1,
+      };
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

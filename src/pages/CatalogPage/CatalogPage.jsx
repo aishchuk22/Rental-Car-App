@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCars } from "../../redux/cars/operations";
+import { fetchCars, fetchFilteredCars } from "../../redux/cars/operations";
 import { nextPage, resetCars } from "../../redux/cars/slice";
 import {
   selectCars,
@@ -22,6 +22,7 @@ const CatalogPage = () => {
   const error = useSelector(selectError);
   const page = useSelector(selectPage);
   const totalPages = useSelector(selectTotalPages);
+  const [filters, setFilters] = useState(null);
   const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
@@ -34,10 +35,10 @@ const CatalogPage = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (isInitialized) {
+    if (isInitialized && !filters) {
       dispatch(fetchCars({ page, limit: 12 }));
     }
-  }, [dispatch, page, isInitialized]);
+  }, [dispatch, page, isInitialized, filters]);
 
   const handleLoadMore = () => {
     if (page < totalPages) {
@@ -46,17 +47,18 @@ const CatalogPage = () => {
   };
 
   const handleFilter = (filters) => {
-    console.log("Selected filters:", filters);
+    setFilters(filters);
+    dispatch(resetCars());
+    dispatch(fetchFilteredCars(filters));
   };
 
   const hasCars = cars && cars.length > 0;
-
-  const showLoadMoreButton = !isLoading && page < totalPages;
+  const showLoadMoreButton = !isLoading && page < totalPages && !filters;
 
   return (
     <section className={s.catalog}>
       <FilterPanel onFilter={handleFilter} />
-      
+
       {hasCars && (
         <ul className={s.list}>
           {cars.map((car) => (
