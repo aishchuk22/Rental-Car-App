@@ -6,8 +6,6 @@ const initialState = {
   priceOptions: [],
   isLoading: false,
   error: null,
-
-  // 🔽 Додаємо поля для збереження обраних фільтрів
   brand: "",
   price: "",
   mileageFrom: "",

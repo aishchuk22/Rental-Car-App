@@ -1,6 +1,8 @@
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import { toggleFavorite } from "../../redux/favorites/slice";
+
 import s from "./CarCard.module.css";
 
 const CarCard = ({ car }) => {

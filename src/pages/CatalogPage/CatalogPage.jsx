@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+
 import { fetchCars, fetchFilteredCars } from "../../redux/cars/operations";
 import { nextPage, resetCars } from "../../redux/cars/slice";
 import {
@@ -9,9 +10,11 @@ import {
   selectPage,
   selectTotalPages,
 } from "../../redux/cars/selectors";
+
 import FilterPanel from "../../components/FilterPanel/FilterPanel";
 import NotFound from "../../components/NotFound/NotFound";
 import CarCard from "../../components/CarCard/CarCard";
+
 import { Audio } from "react-loader-spinner";
 import s from "./CatalogPage.module.css";
 

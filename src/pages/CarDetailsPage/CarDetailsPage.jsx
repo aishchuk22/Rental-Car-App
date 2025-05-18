@@ -1,10 +1,12 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+
 import { fetchCarById } from "../../redux/cars/operations";
+
+import toast, { Toaster } from "react-hot-toast";
 import { Audio } from "react-loader-spinner";
 import s from "./CarDetailsPage.module.css";
-import toast, { Toaster } from "react-hot-toast";
 
 const CarDetailsPage = () => {
   const { id } = useParams();
