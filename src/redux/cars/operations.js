@@ -37,9 +37,12 @@ export const fetchCarById = createAsyncThunk(
 
 export const fetchFilteredCars = createAsyncThunk(
   "cars/fetchFiltered",
-  async ({ brand, price, mileageFrom, mileageTo }, thunkAPI) => {
+  async (
+    { brand, price, mileageFrom, mileageTo, page = 1, limit = 12 },
+    thunkAPI
+  ) => {
     try {
-      const params = {};
+      const params = { page, limit };
 
       if (brand) params.brand = brand;
       if (price) params.rentalPrice = price;
@@ -50,9 +53,9 @@ export const fetchFilteredCars = createAsyncThunk(
 
       return {
         items: data.cars,
-        totalCars: data.totalCars || data.cars.length,
-        page: 1,
-        totalPages: 1,
+        totalCars: data.totalCars,
+        page,
+        totalPages: data.totalPages,
       };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

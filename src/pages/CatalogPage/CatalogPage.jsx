@@ -28,15 +28,22 @@ const CatalogPage = () => {
   useEffect(() => {
     dispatch(resetCars());
     setIsInitialized(true);
-
     return () => {
       dispatch(resetCars());
     };
   }, [dispatch]);
 
   useEffect(() => {
-    if (isInitialized && !filters) {
-      dispatch(fetchCars({ page, limit: 12 }));
+    if (!isInitialized) return;
+
+    const payload = filters
+      ? { ...filters, page, limit: 12 }
+      : { page, limit: 12 };
+
+    if (filters) {
+      dispatch(fetchFilteredCars(payload));
+    } else {
+      dispatch(fetchCars(payload));
     }
   }, [dispatch, page, isInitialized, filters]);
 
@@ -46,14 +53,13 @@ const CatalogPage = () => {
     }
   };
 
-  const handleFilter = (filters) => {
-    setFilters(filters);
+  const handleFilter = (filterValues) => {
     dispatch(resetCars());
-    dispatch(fetchFilteredCars(filters));
+    setFilters(filterValues);
   };
 
   const hasCars = cars && cars.length > 0;
-  const showLoadMoreButton = !isLoading && page < totalPages && !filters;
+  const showLoadMoreButton = !isLoading && hasCars && page < totalPages;
 
   return (
     <section className={s.catalog}>

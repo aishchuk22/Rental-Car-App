@@ -16,6 +16,7 @@
   max-width: 640px;
   width: 100%;
   border-radius: 19px;
+  margin-bottom: 40px;
 }
 
 .detailsWrap {
@@ -129,4 +130,76 @@
   justify-content: center;
   align-items: center;
   height: 360px;
+}
+
+.formWrap {
+  padding: 32px;
+  background-color: #fff;
+  border: 1px solid #dadde1;
+  border-radius: 14px;
+  max-width: 640px;
+  width: 100%;
+}
+
+.formTitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  color: #101828;
+}
+
+.formSubtitle {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #8d929a;
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input,
+.textarea {
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: none;
+  background-color: #f7f7f7;
+  font-size: 16px;
+  color: #101828;
+  line-height: 1.25;
+  font-weight: 500;
+  resize: none;
+}
+
+.inpit::placeholder,
+.textarea::placeholder {
+  color: #8d929a;
+}
+
+.textarea {
+  min-height: 88px;
+}
+
+.button {
+  margin: 24px auto 0px;
+  height: 44px;
+  max-width: 156px;
+  background-color: #3470ff;
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.25;
+  padding: 12px 58px;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0b44cd;
 }

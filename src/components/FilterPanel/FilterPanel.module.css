@@ -133,4 +133,5 @@
 .select option:hover,
 .select option:focus {
   color: #101828;
+  background-color: transparent;
 }

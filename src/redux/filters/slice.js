@@ -6,12 +6,28 @@ const initialState = {
   priceOptions: [],
   isLoading: false,
   error: null,
+
+  // 🔽 Додаємо поля для збереження обраних фільтрів
+  brand: "",
+  price: "",
+  mileageFrom: "",
+  mileageTo: "",
 };
 
 const filtersSlice = createSlice({
   name: "filters",
   initialState,
-  reducers: {},
+  reducers: {
+    setFilters(state, action) {
+      return { ...state, ...action.payload };
+    },
+    resetFilters(state) {
+      state.brand = "";
+      state.price = "";
+      state.mileageFrom = "";
+      state.mileageTo = "";
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchBrands.pending, (state) => {
@@ -41,4 +57,5 @@ const filtersSlice = createSlice({
   },
 });
 
+export const { setFilters, resetFilters } = filtersSlice.actions;
 export default filtersSlice.reducer;

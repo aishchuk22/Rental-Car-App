@@ -53,9 +53,7 @@ const FilterPanel = ({ onFilter }) => {
           onChange={(e) => setBrand(e.target.value)}
           className={s.select}
         >
-          <option value="" disabled hidden>
-            Choose a brand
-          </option>
+          <option value="">Choose a brand</option>
           {brands.map((b) => (
             <option key={b} value={b}>
               {b}
@@ -71,9 +69,7 @@ const FilterPanel = ({ onFilter }) => {
           onChange={(e) => setPrice(e.target.value)}
           className={s.select}
         >
-          <option value="" disabled hidden>
-            Choose a price
-          </option>
+          <option value="">Choose a price</option>
           {priceOptions.map((p) => (
             <option key={p} value={p}>
               ${p}
